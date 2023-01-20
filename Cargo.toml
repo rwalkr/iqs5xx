@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "iqs5xx"
-version = "0.1.0"
+version = "0.1.1"
 authors = [ "Robert Walker <rob@tenfoot.org.uk>" ]
 description = "Device driver for IQS5xx capacitive touchpad controller"
 license = "MIT"
