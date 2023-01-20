@@ -1,0 +1,15 @@
+[package]
+edition = "2021"
+name = "iqs5xx"
+version = "0.1.0"
+authors = [ "Robert Walker <rob@tenfoot.org.uk>" ]
+description = "Device driver for IQS5xx capacitive touchpad controller"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/rwalkr/iqs5xx"
+documentation = "https://docs.rs/iqs5xx"
+
+[dependencies]
+embedded-hal = { version = "0.2.5", features = ["unproven"] }
+defmt = "0.3"
+paste = "1.0.0"
