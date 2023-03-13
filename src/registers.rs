@@ -23,6 +23,8 @@ register_id!(TIMEOUT_LP1, 0x0587);
 register_id!(REFERENCE_UPDATE_TIME, 0x0588);
 register_id!(SNAP_TIMEOUT, 0x0589);
 register_id!(I2C_TIMEOUT, 0x058A);
+register_id!(RESOLUTION_X, 0x066E);
+register_id!(RESOLUTION_Y, 0x0670);
 register_id!(SINGLE_FINGER_GESTURES, 0x06B7);
 register_id!(MULTI_FINGER_GESTURES, 0x06B8);
 register_id!(TAP_TIME, 0x06B9);

@@ -536,6 +536,8 @@ register_acc!(TIMEOUT_LP1, u8, rw);
 register_acc!(REFERENCE_UPDATE_TIME, u8, rw);
 register_acc!(SNAP_TIMEOUT, u8, rw);
 register_acc!(I2C_TIMEOUT, u8, rw);
+register_acc!(RESOLUTION_X, u16, rw);
+register_acc!(RESOLUTION_Y, u16, rw);
 register_acc!(SINGLE_FINGER_GESTURES, u8, rw);
 register_acc!(MULTI_FINGER_GESTURES, u8, rw);
 register_acc!(TAP_TIME, u16, rw);
