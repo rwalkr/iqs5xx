@@ -190,7 +190,14 @@ mod app {
                 Ok(Some(report)) => {
                     let event = iqs5xx::Event::from(&report);
                     info!("Event: {}", event);
+                    let is_rhs = report.num_fingers == 1 && report.touches[0].abs_x > 900;
                     match event {
+                        // interpret right hand edge as scroll up / down
+                        iqs5xx::Event::Move{x: _, y: rel_y} | iqs5xx::Event::PressHold{x: _, y: rel_y} if is_rhs => {
+                            let mut rep = make_report();
+                            rep.wheel = -rel_y as i8;
+                            send_report::spawn(rep).ok();
+                        }
                         iqs5xx::Event::Move{x, y} => {
                             let mut rep = make_report();
                             rep.x = x as i8;
@@ -204,10 +211,10 @@ mod app {
                             let rep2 = make_report();
                             send_report::spawn(rep2).ok();
                         },
-                        iqs5xx::Event::PressHold{x: _, y: _} => {
+                        iqs5xx::Event::PressHold{x, y} => {
                             let mut rep = make_report();
-                            rep.x = report.rel_x as i8;
-                            rep.y = report.rel_y as i8;
+                            rep.x = x as i8;
+                            rep.y = y as i8;
                             rep.buttons = 1;
                             send_report::spawn(rep).ok();
                         },
